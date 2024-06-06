@@ -16,6 +16,9 @@ jobs:
       - run:
           name: Install NPM
           command: npm ci --prefer-offline
+      - run:
+          name: Verify Signature
+          command: npm audit signatures    
       - save_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
