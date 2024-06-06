@@ -18,7 +18,7 @@ jobs:
           command: npm ci --prefer-offline
       - run:
           name: update NPM
-          command: npm install -g npm@8.15.0    
+          command: sudo npm install -g npm@8.15.0 --prefer-offline   
       - run:
           name: Verify Signature
           command: npm audit signatures    
