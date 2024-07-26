@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  snyk: pagerduty/snyk@2  # https://circleci.com/developer/orbs/orb/pagerduty/snyk
+
 executors:
   base:
     docker:
@@ -65,3 +68,8 @@ workflows:
       - build
       - lint
       - test
+      - snyk/snyk_test_full_scan:
+          organization: shared-foundations
+          context:
+            - PagerDuty
+            - Snyk
